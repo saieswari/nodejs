@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="hb">
+     <script>
+         if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Smith");
+         }
+         </script>
+    <img src="logo1.png" id="logo">
+    <div id=hd1>
+        <h1>PIZZA SHOP</h1>
+        
+        <form action="http://localhost:3000/" method="GET">
+            <button class="but">
+                    <div class="hdiv" id="but2">
+                            <h1>HOME</h1>
+                        </div>
+            </button>
+                
+        </form>
+        <form action="http://localhost:3000/contact" method="GET">
+                <button class="but" id="but">
+                        <div class="hdiv" id="id2">
+                                <h1>CONTACT</h1>
+                            </div>
+                </button class="but">
+        </form>
+        <form action="http://localhost:3000/menu" method="GET">
+                <button class="but" id="but1">
+                        <div class="hdiv" id="id3">
+                                <h1>MENU</h1>
+                            </div>
+                </button>
+        </form>
+    
+        
+    </div>
+
+<div class="menu">
+    <img src="pizza1.jpg" class="order">
+    
+    <form action="http://localhost:3000/menu" method="POST">
+        <table id="tmenu" >
+                <tr id="mtr">
+                        <td>NAME:</td>
+                        <td><input type=text value="Pepperoni" name="name" class="detail"></td>
+                    </tr>
+            <tr>
+                <td>PRICE:</td>
+                <td><input type=text value="500" class="detail" name="price"></td>
+            </tr>
+        </table>
+   
+    <div class="overlay">
+            <div id=md>
+                    <p> <h2>INGREDIENT</h2><br><br>Pepperoni <br>Tomato sauce<br> mozzarella<br> and oregano.
+                    </p>
+                </div>
+                <button>BUY</button>
+            </div>
+        </form>
+</div>
+
+<div class="menu" id="mdiv1">
+        <img src="pizza2.jpg" class="order">
+        
+        <form action="http://localhost:3000/menu" method="POST">
+            <table id="tmenu" >
+                    <tr id="mtr">
+                            <td>NAME:</td>
+                            <td><input type=text value="Blue Cheese" name="name" class="detail"></td>
+                        </tr>
+                <tr>
+                    <td>PRICE:</td>
+                    <td><input type=text value="700" class="detail" name="price"></td>
+                </tr>
+            </table>
+       
+        <div class="overlay">
+                <div id=md>
+                        <p> <h2>INGREDIENT</h2><br><br>Blue Cheese <br>Tomato sauce<br> mozzarella<br> and oregano.
+                        </p>
+                    </div>
+                    <button>BUY</button>
+                </div>
+            </form>
+    </div>
+
+    <div class="menu" id="mdiv2">
+            <img src="pizza3.jpg" class="order">
+            
+            <form action="http://localhost:3000/menu" method="POST">
+                <table id="tmenu" >
+                        <tr id="mtr">
+                                <td>NAME:</td>
+                                <td><input type=text value="Sicilian Pizza" name="name" class="detail"></td>
+                            </tr>
+                    <tr>
+                        <td>PRICE:</td>
+                        <td><input type=text value="850" class="detail" name="price"></td>
+                    </tr>
+                </table>
+           
+            <div class="overlay">
+                    <div id=md>
+                            <p> <h2>INGREDIENT</h2><br><br>Sicilian Pizza<br>Tomato sauce<br> mozzarella<br> and oregano.
+                            </p>
+                        </div>
+                        <button>BUY</button>
+                    </div>
+                </form>
+        </div>
+        <div class="menu" id="mdiv3">
+                <img src="pizza4.jpg" class="order">
+                
+                <form action="http://localhost:3000/menu" method="POST">
+                    <table id="tmenu" >
+                            <tr id="mtr">
+                                    <td>NAME:</td>
+                                    <td><input type=text value="Gold Pizza" name="name" class="detail"></td>
+                                </tr>
+                        <tr>
+                            <td>PRICE:</td>
+                            <td><input type=text value="1000" class="detail" name="price"></td>
+                        </tr>
+                    </table>
+              
+                <div class="overlay">
+                        <div id=md>
+                                <p> <h2>INGREDIENT</h2><br><br>Gold Pizza <br>24k Gold<br> mozzarella<br> and oregano.
+                                </p>
+                            </div>
+                            <button>BUY</button>
+                        </div>
+                    </form>
+            </div>
+            <div class="menu" id="mdiv4">
+                    <img src="pizza5.jpg" class="order">
+                    <form action="http://localhost:3000/menu" method="POST">
+                   
+                        <table id="tmenu" >
+                                <tr id="mtr">
+                                        <td>NAME:</td>
+                                        <td><input type=text value="Braccio di Ferro." name="name" class="detail"></td>
+                                    </tr>
+                            <tr>
+                                <td>PRICE:</td>
+                                <td><input type=text value="699" class="detail" name="price"></td>
+                            </tr>
+                        </table>
+                    
+                    <div class="overlay">
+                            <div id=md>
+                                    <p> <h2>INGREDIENT</h2><br><br>Braccio di Ferro. <br>Tomato sauce<br> mozzarella<br> and oregano.
+                                    </p>
+                                </div>
+                                <button>BUY</button>
+                            </div>
+                        </form>
+                          
+                  
+                            
+                </div>
+                <div class="menu" id="mdiv5">
+                        <img src="pizza1.jpg" class="order">
+                       
+                        <form action="http://localhost:3000/menu" method="POST" >
+                            <table id="tmenu" >
+                                    <tr id="mtr">
+                                            <td>NAME:</td>
+                                            <td><input type=text value="Napoletana" name="name" class="detail" ></td>
+                                        </tr>
+                                <tr>
+                                    <td>PRICE:</td>
+                                    <td><input type=text value="450" class="detail" name="price"></td>
+                                </tr>      
+                                    
+                            </table>
+                        
+                        <div class="overlay">
+                                <div id=md>
+                                        <p> <h2>INGREDIENT</h2><br><br>Napoletana <br>Tomato sauce<br> mozzarella<br>  oregano<br>anchovies
+                                        </p>
+                                    </div>
+                                    <button>BUY</button>   
+                            </form>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>

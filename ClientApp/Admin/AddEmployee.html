@@ -1,0 +1,125 @@
+﻿<div class="modal-content">
+    <form role="form" name="postForm" ng-submit="createPost()">
+        <div class="page-inner">
+            <div>
+                <div class="card">
+                    <div class="modal-header no-bd">
+                        <h2 class="modal-title">
+                            <span class="fw-mediumbold">
+                                New
+                            </span>
+                            <span class="fw-light">
+                                Employee
+                            </span>
+                        </h2>
+                        <a href="/employeelist" class="close">
+                            <span aria-hidden="true">&times;</span>
+                        </a>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="nTxt">Name<span style="color:red; font-weight:bolder;">*</span> :</label>
+                                            <input id="nTxt" type="text" name="nTxt" ng-model="nTxt" class="form-control" placeholder="" required>
+                                            <small class="help-block" style="color: red;" ng-show="postForm.nTxt.$invalid && postForm.nTxt.$touched && postForm.nTxt.$dirty">Must fill the Employee Name*</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="fTxt">ID<span style="color:red; font-weight:bolder;">*</span> :</label>
+                                            <input type="text" name="iTxt" ng-model="iTxt" class="form-control" placeholder="" required>
+                                            <small class="help-block" style="color: red;" ng-show="postForm.iTxt.$invalid && postForm.iTxt.$touched && postForm.iTxt.$dirty">Must fill the Employee ID*</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="desigTxt">Designation<span style="color:red; font-weight:bolder;">*</span> :</label>
+                                            <select name="desigTxt" class="form-control" required ng-model="desigTxt">
+                                                <option value="" disabled selected>Select Designation</option>
+                                                <option value="Sr Manager">Sr Manager</option>
+                                                <option value="Manager">Manager</option>
+                                                <option value="Assist Manager">Assist Manager</option>
+                                                <option value="Team Lead">Team Lead</option>
+                                                <option value="Sr Programmer">Sr Programmer</option>
+                                                <option value="Programmer">Programmer</option>
+                                                <option value="Programmer Trainee">Programmer Trainee</option>
+                                            </select>
+                                            <small class="help-block" style="color: red;" ng-show="postForm.desigTxt.$invalid && postForm.desigTxt.$touched && postForm.desigTxt.$dirty">Must select the Designation*</small>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="deptTxt">DU<span style="color:red; font-weight:bolder;">*</span> :</label>
+                                            <select name="deptTxt" class="form-control" required ng-model="deptTxt">
+                                                <option value="" disabled selected>Select DU</option>
+                                                <option value="SDU">SDU</option>
+                                                <option value="Digital e-Learning">Digital e-Learning</option>
+                                                <option value="Central T&E">Central T&E</option>
+                                                <option value="T&F">T&F</option>
+                                                <option value="Journals">Journals</option>
+                                            </select>
+                                            <small class="help-block" style="color: red;" ng-show="postForm.deptTxt.$invalid && postForm.deptTxt.$touched && postForm.deptTxt.$dirty">Must select the Department*</small>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="roleTxt">Role<span style="color:red; font-weight:bolder;">*</span> :</label>
+                                            <select name="roleTxt" class="form-control" required ng-model="roleTxt">
+                                                <option value="" disabled selected>Select Role</option>
+                                                <option value="1">Admin</option>
+                                                <option value="2">User</option>
+                                            </select>
+                                            <small class="help-block" style="color: red;" ng-show="postForm.roleTxt.$invalid && postForm.roleTxt.$touched && postForm.roleTxt.$dirty">Must select the Role*</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="accessTxt">Access :</label>
+                                            <table class="table table-head table-head-bg-primary">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Sl.no:</th>
+                                                        <th scope="col">Access</th>
+                                                        <th scope="col">
+                                                            <div class="custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" ng-click="toggleAll()" ng-model="isAllSelected" id="agree">
+                                                                <label class="custom-control-label" for="agree"></label>
+                                                            </div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="option in options">
+                                                        <td>{{option.id}}</td>
+                                                        <td>{{option.name}}</td>
+                                                        <td>
+                                                            <div class="custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" ng-model="option.selected" ng-change="optionToggled()" id="{{ $index }}">
+                                                                <label class="custom-control-label" for="{{ $index }}"></label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="addRowButton" class="btn btn-primary">Add</button>
+                        <a style="text-decoration:none;color:white;" href="/employeelist"><button type="button" class="btn" data-dismiss="modal">Close</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

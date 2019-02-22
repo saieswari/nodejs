@@ -1,0 +1,155 @@
+﻿
+<div>
+
+    <div class="content">
+        <div class="panel-header bg-primary-gradient">
+            <div class="page-inner py-5">
+                <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+                    <div>
+                        <h2 class="text-white pb-2 fw-bold">Dashboard</h2>
+
+                    </div>
+                    <div class="ml-md-auto py-2 py-md-0">
+                        <a href="/addemployee" class="btn btn-success btn-sm btn-round"><i class="fa fa-plus"></i>&nbsp; Add Employee</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-inner mt--5">
+            <div class="col-md-12">
+            </div>
+        </div>
+    </div>
+    <div class="page-inner mt--5">
+
+        <div class="row mt--2">
+            
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body pb-0">
+                            <div class="text-center">
+                                <h2 class="mb-2">{{calculate}}</h2>
+                                <div class="h1 fw-bold text-primary"><i class="fa fa-external-link-square"></i></div>
+
+
+                                <h4 class="text-muted text-primary">New Request</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body pb-0">
+                            <div class="text-center">
+                                <h2 class="mb-2">17</h2>
+                                <div class="h1 fw-bold text-success"><i class="fa fa-check-circle"></i></div>
+
+
+                                <h4 class="text-muted text-primary">Request Accepted</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body pb-0">
+                            <div class="text-center">
+                                <h2 class="mb-2">17</h2>
+                                <div class="h1 fw-bold text-danger"><i class="fa fa-trash"></i></div>
+
+
+                                <h4 class="text-muted text-primary">Request Denied</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+        <div class="row row-card-no-pd">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-head-row card-tools-still-right">
+                            <h4 class="card-title text-primary">Requested Employee</h4>
+                            <div class="card-tools">
+                                <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="table-responsive table-hover table-sales">
+                                <table id="tablePreview" class="table table-head-bg-primary">
+                                    <!--Table head-->
+                                    <thead>
+                                        <tr>
+
+                                            <th>Emp Code</th>
+                                            <th>Emp Name</th>
+                                            <th>DU</th>
+                                            <th>Designation</th>
+                                            <th>Access Name</th>
+                                            <th>Access Id</th>
+                                            <th>Reason</th>
+                                            <th>Date & Time</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr ng-repeat="access in accesses">
+                                            
+                                            <td>{{access.EmpCode}}</td>
+                                            <td>{{access.EmpName}}</td>
+                                            <td>{{access.DU}}</td>
+                                            <td>{{access.Designation}}</td>
+                                            <td>{{access.AccessName}}</td>
+                                            <td>{{access.AccessId}}</td>
+                                            <td>{{access.Reason}}</td>
+                                            <td>{{access.DateTime}}</td>
+                                            <td>
+                                                <a href="#" onclick="message()"><i class="fa fa-check-circle text-success" style="font-size:20px;"></i></a>
+                                                &nbsp;
+                                                <a href="#"><i class="fa fa-times text-danger" style="font-size:20px;color:red;"></i></a>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                    <!--Table body-->
+                                </table>
+                                <!--Table-->
+                                <button class="btn btn-primary btn-sm btn-round pull-right">View More</button>
+                                <!--<button type="button" class="btn btn-warning" id="alert_demo_3_1"> Warning</button>-->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-head-row">
+                            <div class="card-title text-primary">User Request</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="line" class="chart chart-line" data="chartData.data" labels="chartData.labels"
+                                    legend="true" series="chartData.series" style="max-height:500px; font-size:30px;"></canvas>
+                        </div>
+                        <div id="myChartLegend"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+ 

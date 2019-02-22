@@ -1,0 +1,213 @@
+﻿
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="Changep.js"></script>
+
+    <div class="content">
+        <div class="page-inner">
+            <h4 class="page-title">User Profile</h4>
+            <div class="row">
+
+
+                <!--profile-->
+
+                <div class="col-md-8">
+                    <div class="card card-with-nav">
+                        <div class="card-body ">
+                            <div class="row mt-3 mb-1">
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default">
+                                        <h5>Access Type</h5>
+                                        <select class="form-control" ng-model="Id" required>
+                                            <option ng-repeat="access in accesses" ng-value='access.AccessID'
+                                                    value="{{access.AccessID}}">
+                                                {{access.Access1}}
+                                            </option>
+                                        </select>
+                                        <span ng-show="Id.$touched && Id.$invalid">Access type is required.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <form name="reasonform" novalidate style="position:relative;left:14px;">
+                                <div class="row mt-3 mb-1">
+                                    <div class="col-md-12 row">
+                                        <div class="form-group form-group-default">
+                                            <h5>Reason</h5>
+                                            <input type="text" class="form-control" name="reason" ng-model="reason" placeholder="Please leave your reason here" rows="3" ng-required="true" />
+
+                                        </div>
+                                        <span class="fa fa-thumbs-o-down" ng-show="reasonform.reason.$dirty && reasonform.reason.$invalid" ng-hide="reason!='' && reason!='undefined'"></span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="text-right mt-3 mb-3">
+                                <button class="btn btn-success " ng-click="submit()">Submit <span class="fa fa-paper-plane"></span></button>
+                                <button class="btn btn-danger">Reset<span class="fa fa-repeat"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-profile">
+                        <div class="card-header" style="background-image: url('../../assets/img/mlane.jpg')">
+                            <div class="profile-picture">
+                                <div class="avatar avatar-xl">
+                                    <img src="../../assets/img/mlane.jpg" alt="..." class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="user-profile text-center">
+                                <div class="name">Hizrian, 19</div>
+                                <div class="job">Frontend Developer</div>
+                                <div class="desc">A man who hates loneliness</div>
+                                <div class="social-media">
+                                    <a class="btn btn-info btn-twitter btn-sm btn-link" href="#">
+                                        <span class="btn-label just-icon"><i class="flaticon-twitter"></i> </span>
+                                    </a>
+                                    <a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+                                        <span class="btn-label just-icon"><i class="flaticon-google-plus"></i> </span>
+                                    </a>
+                                    <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="#">
+                                        <span class="btn-label just-icon"><i class="flaticon-facebook"></i> </span>
+                                    </a>
+                                    <a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+                                        <span class="btn-label just-icon"><i class="flaticon-dribbble"></i> </span>
+                                    </a>
+                                </div>
+                                <div class="view-profile">
+                                    <a href="#" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#addRowModal">Change Password</a>
+                                </div>
+                                <!--change password-->
+                                <div class="card-body" ng-controller="Passwordctrl">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header no-bd">
+                                                    Change Password
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form name="form" novalidate>
+                                                        <div class="row mt-3 mb-1">
+                                                            <div class="col-md-8">
+
+                                                                <div class="form-group form-group-default">
+                                                                    <label class="text-left">Employee code</label>
+                                                                    <input type="text" class="form-control" name="id" ng-model="id" placeholder="Please Enter Id" required ng-change="check1(id)">
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div></div>
+                                                            <span class="fa fa-thumbs-o-down" style="font-size:30px;color:red; position:relative; top:20px;" ng-show="form.id.$dirty && form.id.$invalid">
+                                                            </span>
+                                                            <span ng-hide="!id" style="color:red">{{msg}}</span>
+                                                            <span class="fa fa-thumbs-o-up" style="color:greenyellow;font-size:30px; position:relative; top:20px;" ng-if="status"></span>
+                                                        </div>
+                                                        <div class="row mt-3 mb-1">
+                                                            <div class="col-md-8">
+                                                                <div class="form-group form-group-default">
+                                                                    <label class="text-left">Old Password</label>
+                                                                    <input type="password" class="form-control" name="old" ng-model="old" placeholder="Please Enter Old Password" required>
+                                                                </div>
+
+                                                            </div>
+                                                            <span class="fa fa-thumbs-o-up" style="color:greenyellow;font-size:30px; position:relative; top:20px;" ng-show="old"></span>
+                                                            <span class="fa fa-thumbs-o-down" style="font-size:30px;color:red; position:relative; top:20px;" ng-show="form.old.$dirty && form.old.$invalid"></span>
+                                                        </div>
+                                                        <div class="row mt-3 mb-1">
+                                                            <div class="col-md-8">
+                                                                <div class="form-group form-group-default">
+                                                                    <label class="text-left">New Password</label>
+                                                                    <input type="password" class="form-control" name="new" ng-model="new" placeholder="Please Enter New Password" required>
+                                                                </div>
+
+                                                            </div>
+                                                            <span class="fa fa-thumbs-o-down" style="font-size:30px;color:red; position:relative; top:20px;" ng-show="form.new.$dirty && form.new.$invalid"></span>
+                                                            <span class="fa fa-thumbs-o-up" style="color:greenyellow;font-size:30px; position:relative; top:20px;" ng-show="new"></span>
+                                                        </div>
+                                                        <div class="row mt-6 mb-1">
+                                                            <div class="col-md-8">
+                                                                <div class="form-group form-group-default">
+                                                                    <label class="text-left">Confirm Password</label>
+                                                                    <input type="password" class="form-control" name="confirm" ng-model="confirm" placeholder="Please Enter Confirm Password" required ng-change="pswdcheck(confirm)">
+                                                                </div>
+
+                                                            </div>
+                                                            <span class="fa fa-thumbs-o-down" style="font-size:30px;color:red; position:relative; top:20px;" ng-show="form.confirm.$dirty && form.confirm.$invalid"></span>
+                                                            <span class="fa fa-thumbs-o-up" style="color:greenyellow;font-size:30px; position:relative; top:20px;" ng-show="confirm && status1"></span>
+                                                            <span ng-show="!status1" ng-hide="!confirm" style="color:red">Password mismatch</span>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                                <div class="modal-footer no-bd">
+                                                    <button type="button" id="addRowButton" data-dismiss="modal" class="btn btn-primary" ng-click="change()">Send</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end of change password-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-----------------------------------------------------requested----------------------------------------------------------->
+                <div class="col-md-8" style="position:absolute;top:450px;">
+                    <div class="card card-with-nav">
+                        <div class="card-body ">
+                            <div class="row mt-3 mb-1">
+                                <div class="col-md-12">
+                                    <div class="form-group form-group-default">
+                                        <div class="list-group-item active">Recently sent requests</div>
+
+                                        <table class="table">
+                                            <thead class="thead-blue">
+                                                <tr>
+
+                                                    <th scope="col">Access Name</th>
+                                                    <th scope="col">Reason</th>
+                                                    <th scope="col">Requested Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="request in requests">
+
+                                                    <td>{{request.Accessname}}</td>
+                                                    <td>{{request.Reason}}</td>
+                                                    <td>{{request.requesteddate}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="dropdown-divider"></div>
+                                    </div>
+
+                                </div>
+                                <div class="fa fa-thumbs-o-down bg-dark-gradient page-inner py-5" style="font-size:40px; position:absolute;left:100px; top:100px; color:white " ng-if="requests.length==0">No Request Found!</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--Endprofile-->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
